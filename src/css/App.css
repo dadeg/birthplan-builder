@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: green;
+  height: 70px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+label {
+  display: block;
+  margin-top:10px;
+}
+
+label input, label textarea {
+  display: block;
+  margin: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding:5px;
+}
+
+.icon-bank {
+  width:50%;
+  float:left;
+}
+
+.selected-icons {
+  width:50%;
+  margin-left: 50%;
+}
