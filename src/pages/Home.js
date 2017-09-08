@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import DragSortableList from 'react-drag-sortable'
 
 const allIcons = [
   "noYelling",
@@ -31,6 +32,19 @@ export default class Home extends Component {
     this.props.setPlanDetails('icons', newIcons);
   }
 
+  sortList(sortedList) {
+    const strippedList = sortedList.map(sortableIcon => sortableIcon.content.props['data-icon']);
+    console.log('new sort for icons, new list: ', strippedList);
+    this.props.setPlanDetails('icons', strippedList);
+  }
+
+  getSortableList(icons) {
+    if (!icons) {
+      return [];
+    } 
+    return icons.map((icon, i) => { return { content: (<div key={ 'selected'+i } data-icon={icon} className = { icon }>{icon} <span className= "remove" data-icon={icon} onClick={ this.removeFromList.bind(this) } > remove</span></div>)}});
+  }
+
   render() {
     const planDetails = this.props.getPlanDetails();
 
@@ -46,9 +60,7 @@ export default class Home extends Component {
           )}
         </div>
         <div className="selected-icons">
-          {planDetails.icons && planDetails.icons.map((icon, i) =>
-            <div key={'selected'+i} data-icon={icon} className={icon}>{icon} <span className="remove" data-icon={icon} onClick={this.removeFromList.bind(this)}>remove</span></div> 
-          )}
+          <DragSortableList items={this.getSortableList(planDetails.icons)} onSort={this.sortList.bind(this)} type="vertical" />
         </div>
         <div style={{ clear: 'both' }}>
         <Link to={'/plan'}>
