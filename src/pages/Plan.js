@@ -14,7 +14,11 @@ export default class Plan extends Component {
         <h2>Visual Birth Plan for {details.name}</h2>
         {details.partnerName && (<h4>Partner's Name: {details.partnerName}</h4>)}
         <p>{details.summary}</p>
-        
+        <div className="icons">
+          {details.icons && details.icons.map((icon, i) => 
+            <img key={'icon'+i} src="/icons/{icon}" />
+          )}
+        </div>  
       </div>
     );
   }

@@ -23,10 +23,7 @@ export default class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div className="App-header">
-            {/*<img src={logo} className="App-logo" alt="logo" />*/}
-            <h2>Your Visual Birthplan Builder</h2>
-          </div>
+          
           <Switch>
             <Route exact path="/" render={routeProps => <Home {...routeProps} getPlanDetails={this.getPlanDetails.bind(this)} setPlanDetails={this.setPlanDetails.bind(this)} />} />
             <Route path="/plan" render={routeProps => <Plan {...routeProps} getPlanDetails={this.getPlanDetails.bind(this)} />} />
