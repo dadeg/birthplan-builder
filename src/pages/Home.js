@@ -92,7 +92,15 @@ export default class Home extends Component {
     if (!icons) {
       return [];
     } 
-    return icons.map((icon, i) => { return { content: (<div key={ 'selected'+i } data-icon={icon} className = { icon }>{icon} <span className= "remove" data-icon={icon} onClick={ this.removeFromList.bind(this) } > remove</span></div>)}});
+    return icons.map((icon, i) => {
+      return {
+        content: (
+          <div key={'selected' + i} data-icon={icon} className={icon}>
+            <img className="drag" src={`/icons/${icon}`} />
+            <span className="remove" data-icon={icon} onClick={this.removeFromList.bind(this)} > X </span>
+          </div>)
+      }
+    });
   }
 
   render() {
@@ -108,21 +116,29 @@ export default class Home extends Component {
         <label>Your Name: <input value={planDetails.name} onChange={this.setPartOfPlan('name')}/></label>
         <label>Your Partner's Name: <input value={planDetails.partnerName} onChange={this.setPartOfPlan('partnerName')}/></label>
         <label>Summary and other information: <textarea value={planDetails.summary} onChange={this.setPartOfPlan('summary')} /></label>
-        <p>Click on some icons from the left and then sort them on the right by dragging'n dropping</p>
+        <p>Click on some icons from the left and then sort them on the right by dragging and dropping</p>
+        <div style={{ clear: 'both' }}>
+          <Link to={'/plan'}>
+            <button>Build Your Birth Plan</button>
+          </Link>
+        </div> 
         <div className="icon-bank">
+          <p>All Icons</p>
           {allIcons.map((icon, i) =>
-            <div key={'bank'+i} className={icon} data-icon={icon} onClick={this.addToList.bind(this)}>{icon}</div>
+            <img src={`/icons/${icon}`} key={'bank'+i} className={icon} data-icon={icon} onClick={this.addToList.bind(this)} />
           )}
         </div>
-        <div className="selected-icons">
-          <DragSortableList items={this.getSortableList(planDetails.icons)} onSort={this.sortList.bind(this)} type="vertical" />
-        </div>
+        <p className="selected">Selected Icons</p>
+        <DragSortableList items={this.getSortableList(planDetails.icons)} onSort={this.sortList.bind(this)} type="grid" dropBackTransitionDuration={0.3} />
+        
         <div style={{ clear: 'both' }}>
-        <Link to={'/plan'}>
-          <button>Build</button>
+          <Link to={'/plan'}>
+            <button>Build Your Birth Plan</button>
           </Link>
-        </div>  
+        </div> 
+        <p>Questions or comments? Please email <a href="mailto:dan.degreef+birthplan@gmail.com">dan.degreef+birthplan@gmail.com</a></p>
       </div>  
+      
     );
   }
 }

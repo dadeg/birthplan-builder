@@ -16,7 +16,7 @@ export default class Plan extends Component {
         <p>{details.summary}</p>
         <div className="icons">
           {details.icons && details.icons.map((icon, i) => 
-            <img key={'icon'+i} src="/icons/{icon}" />
+            <img key={'icon' + i} src={`/icons/${icon}`} />
           )}
         </div>  
       </div>

@@ -32,18 +32,30 @@ label input, label textarea {
   display: block;
   margin: 5px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 97%;
   padding:5px;
 }
 
 .icon-bank {
-  width:50%;
+  width:48%;
   float:left;
+  border-radius: 5px;
+  border: 3px solid green;
+  margin:3px;
+  padding:3px;
 }
 
-.selected-icons {
-  width:50%;
-  margin-left: 50%;
+p.selected {
+  margin-top:30px;
+}
+
+.icon-bank img {
+  width:100px;
+  padding-left:5px;
+}
+
+img.drag {
+  width:100px;
 }
 
 .icons {
@@ -56,7 +68,26 @@ label input, label textarea {
 
 .icons img {
   flex-grow:1;
-  width:150px;
-  height:150px;
+  width:110px;
   padding:10px;
+  max-width: 110px;
+}
+
+.dragged {
+  opacity: 0.7;
+}
+ 
+.placeholder {
+  opacity: 0.5;
+}
+
+button {
+  font-size: 125%;
+}
+
+@media print {
+   button {
+     display: none;
+     visibility: hidden;
+   }
 }
