@@ -111,7 +111,18 @@ export default class Home extends Component {
       <div>
         <div className="App-header">
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
+          
           <h2>Your Visual Birthplan Builder</h2>
+          <p style={{ "font-size": 12, "margin-bottom": 5 }}>Do you find this tool helpful? Please consider making a small contribution that goes towards improving this tool and keeping it free to use for others!
+             </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="T3MM6MMTVUYUY" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+
+
+         
         </div>
         <label>Your Name: <input value={planDetails.name} onChange={this.setPartOfPlan('name')}/></label>
         <label>Your Partner's Name: <input value={planDetails.partnerName} onChange={this.setPartOfPlan('partnerName')}/></label>
@@ -137,6 +148,7 @@ export default class Home extends Component {
           </Link>
         </div> 
         <p>Questions or comments? Please email <a href="mailto:dan.degreef+birthplan@gmail.com">dan.degreef+birthplan@gmail.com</a></p>
+        <p><a target="_blank" href="http://imgur.com/a/PAFkn">Icons provided by Seanna Hartbauer (slidewithme)</a></p> 
       </div>  
       
     );
