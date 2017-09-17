@@ -52,10 +52,12 @@ p.selected {
 .icon-bank img {
   width:100px;
   padding-left:5px;
+  cursor: pointer;
 }
 
 img.drag {
   width:100px;
+  cursor: move;
 }
 
 .icons {
@@ -83,6 +85,10 @@ img.drag {
 
 button {
   font-size: 125%;
+}
+
+.remove {
+  cursor: pointer;
 }
 
 @media print {
