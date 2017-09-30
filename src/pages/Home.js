@@ -227,7 +227,7 @@ export default class Home extends Component {
 
   render() {
     const planDetails = this.props.getPlanDetails();
-    
+
     return (
       
       <div>
@@ -244,12 +244,13 @@ export default class Home extends Component {
             </form>
 
         </div>
+        <h3>Step 1: Write your summary</h3>
         <RichTextEditor editorState={planDetails.summary} onChange={this.setSummary.bind(this)} />
       
-        <p>Click on some icons from the left and then sort them on the right by dragging and dropping</p>
+        <h3>Step 2: Click on some icons from the left and then sort them on the right by dragging and dropping</h3>
         <div style={{ clear: 'both' }}>
           <Link to={'/plan'}>
-            <button>Build Your Birth Plan</button>
+            <button>Step 3: Click Here to Build Your Birth Plan</button>
           </Link>
         </div> 
         <div className="icon-bank">
@@ -263,7 +264,7 @@ export default class Home extends Component {
         
         <div style={{ clear: 'both' }}>
           <Link to={'/plan'}>
-            <button>Build Your Birth Plan</button>
+            <button>Step 3: Click Here to Build Your Birth Plan</button>
           </Link>
         </div> 
         <p>Questions or comments? Please email <a href="mailto:dan.degreef+birthplan@gmail.com">dan.degreef+birthplan@gmail.com</a></p>

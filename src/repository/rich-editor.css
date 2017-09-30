@@ -61,3 +61,8 @@
 .RichEditor-activeButton {
   color: #5890ff;
 }
+
+.controls-wrapper {
+  display: flex;
+  justify-content: center;
+}
