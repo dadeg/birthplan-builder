@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { stateToHTML } from 'draft-js-export-html';
 
 export default class Plan extends Component {
   render() {
     const details = this.props.getPlanDetails();
+    console.log(details.summary);
+    
+    const summaryHtml = details.summary ? stateToHTML(details.summary.getCurrentContent()) : null;
 
     return (
       <div>
@@ -11,9 +15,7 @@ export default class Plan extends Component {
           <button>Back to Builder</button>
         </Link>
         
-        <h2>Visual Birth Plan for {details.name}</h2>
-        {details.partnerName && (<h4>Partner's Name: {details.partnerName}</h4>)}
-        <p style={{ "white-space": "pre-wrap"}}>{details.summary}</p>
+        <p dangerouslySetInnerHTML={{ __html: summaryHtml }}></p>
         <div className="icons">
           {details.icons && details.icons.map((icon, i) => 
             <img key={'icon' + i} src={`/icons/${icon}`} />

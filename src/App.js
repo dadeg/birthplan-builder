@@ -15,7 +15,7 @@ export default class App extends Component {
 
   getPlanDetails() {
     console.log('getting plan details');
-    return this.state || {};
+    return this.state || { };
   }
 
   render() {

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "draft-js": "^0.10.3",
+    "draft-js-export-html": "^1.2.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-drag-sortable": "^1.0.5",
     "react-scripts": "1.0.13"
   },

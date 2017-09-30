@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DragSortableList from 'react-drag-sortable'
+import DragSortableList from 'react-drag-sortable';
+import RichTextEditor from '../repository/RichTextEditor';
 
 const allIcons = [
   "style1/All_procedures_to_be_explained_before_carried_out_on_baby.jpg",
@@ -183,6 +184,11 @@ export default class Home extends Component {
     };
   }
 
+  setSummary(value) {
+    console.log('setting summary', value);
+    this.props.setPlanDetails('summary', value);
+  }
+
   addToList(event) {
     const icons = this.props.getPlanDetails().icons || [];
     const newIcons = [...icons, event.target.getAttribute('data-icon')];
@@ -221,7 +227,7 @@ export default class Home extends Component {
 
   render() {
     const planDetails = this.props.getPlanDetails();
-
+    
     return (
       
       <div>
@@ -237,12 +243,9 @@ export default class Home extends Component {
               <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
             </form>
 
-
-         
         </div>
-        <label>Your Name: <input value={planDetails.name} onChange={this.setPartOfPlan('name')}/></label>
-        <label>Your Partner's Name: <input value={planDetails.partnerName} onChange={this.setPartOfPlan('partnerName')}/></label>
-        <label>Summary and other information: <textarea value={planDetails.summary} onChange={this.setPartOfPlan('summary')} /></label>
+        <RichTextEditor editorState={planDetails.summary} onChange={this.setSummary.bind(this)} />
+      
         <p>Click on some icons from the left and then sort them on the right by dragging and dropping</p>
         <div style={{ clear: 'both' }}>
           <Link to={'/plan'}>
