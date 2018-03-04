@@ -58,7 +58,7 @@ const allIcons = [
   "style1/Vitamin_K_shot_okay_for_baby.jpg",
   "style1/Water_birth_preferred.jpg",
   "style1/Wipe_down_baby_lightly_before_placing_on_mom.jpg",
-  
+
   // another set
   "style2/8GlassesOfWater.png",
   "style2/AntiEmeticWantedCsection.png",
@@ -125,7 +125,7 @@ const allIcons = [
   "style2/No Urinary Catheter.jpg",
   "style2/NoAntibiotics.png",
   "style2/NoAugmentationOfLabor.png",
-  "style2/NoBathPlease(1).png",
+  "style2/NoBathPlease.png",
   "style2/NoBathPlease.png",
   "style2/NoCervicalExams.png",
   "style2/NoCircimcision.png",
@@ -213,7 +213,7 @@ export default class Home extends Component {
   getSortableList(icons) {
     if (!icons) {
       return [];
-    } 
+    }
     return icons.map((icon, i) => {
       return {
         content: (
@@ -229,11 +229,11 @@ export default class Home extends Component {
     const planDetails = this.props.getPlanDetails();
 
     return (
-      
+
       <div>
         <div className="App-header">
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          
+
           <h2>Your Visual Birthplan Builder</h2>
           <p style={{ "font-size": 12, "margin-bottom": 5 }}>Do you find this tool helpful? Please consider making a small contribution that goes towards improving this tool and keeping it free to use for others!
              </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -246,13 +246,13 @@ export default class Home extends Component {
         </div>
         <h3>Step 1: Write your summary</h3>
         <RichTextEditor editorState={planDetails.summary} onChange={this.setSummary.bind(this)} />
-      
+
         <h3>Step 2: Click on some icons from the left and then sort them on the right by dragging and dropping</h3>
         <div style={{ clear: 'both' }}>
           <Link to={'/plan'}>
             <button>Step 3: Click Here to Build Your Birth Plan</button>
           </Link>
-        </div> 
+        </div>
         <div className="icon-bank">
           <p>All Icons</p>
           {allIcons.map((icon, i) =>
@@ -261,16 +261,16 @@ export default class Home extends Component {
         </div>
         <p className="selected">Selected Icons</p>
         <DragSortableList items={this.getSortableList(planDetails.icons)} onSort={this.sortList.bind(this)} type="grid" dropBackTransitionDuration={0.3} />
-        
+
         <div style={{ clear: 'both' }}>
           <Link to={'/plan'}>
             <button>Step 3: Click Here to Build Your Birth Plan</button>
           </Link>
-        </div> 
+        </div>
         <p>Questions or comments? Please email <a href="mailto:dan.degreef+birthplan@gmail.com">dan.degreef+birthplan@gmail.com</a></p>
-        <p><a target="_blank" href="http://imgur.com/a/PAFkn">Icons provided by Seanna Hartbauer (slidewithme)</a></p> 
-      </div>  
-      
+        <p><a target="_blank" href="http://imgur.com/a/PAFkn">Icons provided by Seanna Hartbauer (slidewithme)</a></p>
+      </div>
+
     );
   }
 }
