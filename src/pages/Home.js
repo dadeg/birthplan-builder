@@ -50,7 +50,7 @@ const allIcons = [
   "style1-updated/Vitamin K shot okay for baby.jpg",
   "style1-updated/warm compresses.jpg",
   "style1-updated/wear own clothes.jpg",
-  "style1-updated/Wipe down baby lightly before placing on mom.jpg",
+  "style1-updated/Wipe down baby lightly before placing on mom.jpg"
 
   // replaced by updated ones.
   // "style1/All_procedures_to_be_explained_before_carried_out_on_baby.jpg",
